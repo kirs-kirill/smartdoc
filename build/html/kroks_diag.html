@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Диагностика каналов на оборудовании KROKS &mdash; документация smart-doc </title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="prev" title="Добро пожаловать на СмартВики!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            smart-doc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Диагностика каналов на оборудовании KROKS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web">1.1. Возможности web-интерфейса</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssh">1.2. Подключение по ssh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.3. Тестирование пропускной способности</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">smart-doc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Диагностика каналов на оборудовании KROKS</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/kroks_diag.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="kroks">
+<h1><span class="section-number">1. </span>Диагностика каналов на оборудовании KROKS<a class="headerlink" href="#kroks" title="Permalink to this heading"></a></h1>
+<p>Подключение к оборудованию производится по адресу loopback через web-браузер или по ssh. Логин tech, пароль стандартный.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>При смене каких-либо параметров необходимо применить настройки (в web-интерфейсе внизу будет кнопка Применить), при этом сервис, настройки которого были изменены, перезапустится.</p>
+</div>
+<section id="web">
+<h2><span class="section-number">1.1. </span>Возможности web-интерфейса<a class="headerlink" href="#web" title="Permalink to this heading"></a></h2>
+<p>После подключения через браузер откроется страница с системной информацией (название оборудования, модель, аптайм).</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-main1.png"><img alt="_images/kroks-main1.png" src="_images/kroks-main1.png" style="width: 422.79999999999995px; height: 333.9px;" /></a>
+</figure>
+<p>Ниже на этой же странице будут показаны интерфейсы туннелей и адреса на них, а также клиенты, которые получают IP-адрес по услуге Интернет.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-main2.png"><img alt="_images/kroks-main2.png" src="_images/kroks-main2.png" style="width: 668.5px; height: 368.9px;" /></a>
+</figure>
+<p>В разделе <em>Состояние -&gt; Мониторинг</em> можно ознакомится с загрузкой системы, а также проверить наличие трафика на интерфейсе:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-monitor.png"><img alt="_images/kroks-monitor.png" src="_images/kroks-monitor.png" style="width: 1000.9999999999999px; height: 356.29999999999995px;" /></a>
+</figure>
+<p>Для проверки уровня сигнала мобильной сети необходимо перейти в раздел <em>Сеть -&gt; Модем</em>.
+Во вкладке Информация можно ознакомится с моделью модема, температурой, режимами работы. На этой же вкладке можно проверить сим-карту: выводится информация о серийном номере сим-карты, качестве сигнала, его уровне и номер базовой станции.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-modem-main.png"><img alt="_images/kroks-modem-main.png" src="_images/kroks-modem-main.png" style="width: 676.9px; height: 567.6999999999999px;" /></a>
+</figure>
+<p>Для подробной информации о сигнале сети рекомендуется открыть вкладку Наведение антенны в этом же разделе.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-antenna.png"><img alt="_images/kroks-antenna.png" src="_images/kroks-antenna.png" style="width: 830.1999999999999px; height: 562.0999999999999px;" /></a>
+</figure>
+<p>Настройка режимов работы модема и переключение сим-карт производится во вкладке Конфигурация.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-modem-setting1.png"><img alt="_images/kroks-modem-setting1.png" src="_images/kroks-modem-setting1.png" style="width: 680.4px; height: 378.0px;" /></a>
+</figure>
+<p>Здесь можно выбрать, в каком режиме будет работать модем, какие сети и режимы будут в приоритете.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-modem-setting2.png"><img alt="_images/kroks-modem-setting2.png" src="_images/kroks-modem-setting2.png" style="width: 680.4px; height: 377.29999999999995px;" /></a>
+</figure>
+<p>Ниже, на этой же странице, можно выбрать, через какую сим-карту будет работать антенна. Обратите внимание, что перед этим сим-карту следует активировать в ЛК оператора. На примере ниже активна сим-карта МТС, но есть возможность выбрать МГФ.</p>
+<dl class="simple">
+<dt>…. warning::</dt><dd><p>Обратите внимание, что перед этим сим-карту следует активировать в ЛК оператора. На примере ниже активна сим-карта МТС, но есть возможность выбрать МГФ.</p>
+</dd>
+</dl>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-sim-switch.png"><img alt="_images/kroks-sim-switch.png" src="_images/kroks-sim-switch.png" style="width: 800.0999999999999px; height: 277.9px;" /></a>
+</figure>
+<p>Далее рассмотрим раздел с Сеть -&gt; Интерфейсы. Здесь, как можно понять, отображены интерфейсы, которые есть на оборудовании. Обычно это:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Два l2tp-туннеля, интерфейс в сторону клиента (eth0)</p></li>
+<li><p>лупбэк антенны, через который можно к ней подключиться удаленно</p></li>
+<li><p>бридж для подключения выездных инженеров по сети wi-fi (скрытая)</p></li>
+<li><p>менеджер модема, который отвечает за подключение к мобильной сети.</p></li>
+</ul>
+</div></blockquote>
+<p>Обратите внимание, что интерфейсы gre не используются на оборудовании КРОКС.</p>
+<p>Для услуги L2 так же есть eoip-туннели и бридж, который объединяет eoip и eth0.</p>
+<p>На этой странице можно проверить статистику на интерфейсах (хоть и ограниченно), поправить настройки на них или перезапустить.</p>
+<p>Как получить более подробную статистику по интерфейсам рассмотрим чуть позже в подключении по ssh.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-interfaces.png"><img alt="_images/kroks-interfaces.png" src="_images/kroks-interfaces.png" style="width: 774.1999999999999px; height: 532.6999999999999px;" /></a>
+</figure>
+<p>В разделе Сеть -&gt; QoS можно посмотреть и настроить ширину пропускания для клиента.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-qos.png"><img alt="_images/kroks-qos.png" src="_images/kroks-qos.png" style="width: 616.6999999999999px; height: 262.5px;" /></a>
+</figure>
+</section>
+<section id="ssh">
+<h2><span class="section-number">1.2. </span>Подключение по ssh<a class="headerlink" href="#ssh" title="Permalink to this heading"></a></h2>
+<p>Для подключения к оборудованию по ssh мы будем использовать putty, но можно использовать любой ssh-клиент.
+После подключения и ввода пароля откроется консоль с выводом базовой информации и предложением ввода команды.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/kroks-ssh.png"><img alt="_images/kroks-ssh.png" src="_images/kroks-ssh.png" style="width: 473.9px; height: 438.2px;" /></a>
+</figure>
+<p>Ниже рассмотрим некоторые команды и их вывод.</p>
+<p><strong>Alias</strong></p>
+<p>Для удобства на кроксах настроены короткие варианты распространенных команд (т.н. alias), полный список можно узнать набрав <strong>alias</strong> в терминале:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@test-kroks:~#<span class="w"> </span><span class="nb">alias</span>
+<span class="nv">info</span><span class="o">=</span><span class="s1">&#39;information&#39;</span>
+<span class="nv">00</span><span class="o">=</span><span class="s1">&#39;set00&#39;</span>
+<span class="nv">02</span><span class="o">=</span><span class="s1">&#39;set02&#39;</span>
+<span class="nv">linkup</span><span class="o">=</span><span class="s1">&#39;set_up&#39;</span>
+<span class="nv">03</span><span class="o">=</span><span class="s1">&#39;set03&#39;</span>
+<span class="nv">link</span><span class="o">=</span><span class="s1">&#39;showport&#39;</span>
+<span class="nv">macs</span><span class="o">=</span><span class="s1">&#39;showmacs&#39;</span>
+<span class="nv">port</span><span class="o">=</span><span class="s1">&#39;showport&#39;</span>
+<span class="nv">linkdown</span><span class="o">=</span><span class="s1">&#39;set_down&#39;</span>
+<span class="nv">0302</span><span class="o">=</span><span class="s1">&#39;set0302&#39;</span>
+<span class="nv">0203</span><span class="o">=</span><span class="s1">&#39;set0203&#39;</span>
+<span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -alF --color=auto&#39;</span>
+<span class="nv">more</span><span class="o">=</span><span class="s1">&#39;less&#39;</span>
+<span class="nv">vim</span><span class="o">=</span><span class="s1">&#39;vi&#39;</span>
+</pre></div>
+</div>
+<p>Коротко об этих командах:</p>
+<ul class="simple">
+<li><p><strong>info</strong> - очищает экран и выводит базовую информацию как при подключении по ssh;</p></li>
+<li><p><strong>00</strong>, <strong>03</strong>, <strong>02</strong>, <strong>0302</strong>, <strong>0203</strong> - режимы связи модема и приоритеты (00 - автоматически, 03 - LTE, 02 - 3G);</p></li>
+<li><p><strong>link</strong> и <strong>port</strong> - отображает физический статус линка и ошибки на порту;</p></li>
+<li><p><strong>linkdown</strong> / <strong>linkup</strong> - выключить / включить интерфейс;</p></li>
+<li><p><strong>macs</strong> - на услуге L2 отображает мас-адреса подключенных устройств;</p></li>
+</ul>
+<p><strong>ifconfig</strong></p>
+<p>Вывод информации обо всех интерфейсах, для информации о каком-то одном интерфейсе надо его явно указать, например, ifconfig eth0. Так можно посмотреть статистику по переданным данным на интерфейсе и наличие ошибок на нем (errors, dropped).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@test-kroks:~#<span class="w"> </span>ifconfig<span class="w"> </span>eth0
+eth0<span class="w">    </span>Link<span class="w"> </span>encap:Ethernet<span class="w">  </span>HWaddr<span class="w"> </span>0C:EF:AF:D1:24:92
+<span class="w">        </span>inet<span class="w"> </span>addr:185.138.78.1<span class="w">  </span>Bcast:185.138.78.255<span class="w">  </span>Mask:255.255.255.0
+<span class="w">        </span>inet6<span class="w"> </span>addr:<span class="w"> </span>fe80::eef:afff:fed1:2492/64<span class="w"> </span>Scope:Link
+<span class="w">        </span>UP<span class="w"> </span>BROADCAST<span class="w"> </span>RUNNING<span class="w"> </span>MULTICAST<span class="w">  </span>MTU:1500<span class="w">  </span>Metric:1
+<span class="w">        </span>RX<span class="w"> </span>packets:16532<span class="w"> </span>errors:0<span class="w"> </span>dropped:10<span class="w"> </span>overruns:0<span class="w"> </span>frame:0
+<span class="w">        </span>TX<span class="w"> </span>packets:18983<span class="w"> </span>errors:0<span class="w"> </span>dropped:0<span class="w"> </span>overruns:0<span class="w"> </span>carrier:0
+<span class="w">        </span>collisions:0<span class="w"> </span>txqueuelen:1000
+<span class="w">        </span>RX<span class="w"> </span>bytes:2630688<span class="w"> </span><span class="o">(</span><span class="m">2</span>.5<span class="w"> </span>MiB<span class="o">)</span><span class="w">  </span>TX<span class="w"> </span>bytes:7941654<span class="w"> </span><span class="o">(</span><span class="m">7</span>.5<span class="w"> </span>MiB<span class="o">)</span>
+<span class="w">        </span>Interrupt:5
+
+@test-kroks:~#<span class="w"> </span>ifconfig<span class="w"> </span>wwan0
+wwan0<span class="w">   </span>Link<span class="w"> </span>encap:Ethernet<span class="w">  </span>HWaddr<span class="w"> </span>AA:A5:99:1C:1F:7B
+<span class="w">        </span>inet<span class="w"> </span>addr:10.125.77.245<span class="w">  </span>Bcast:10.255.255.255<span class="w">  </span>Mask:255.0.0.0
+<span class="w">        </span>inet6<span class="w"> </span>addr:<span class="w"> </span>fe80::a8a5:99ff:fe1c:1f7b/64<span class="w"> </span>Scope:Link
+<span class="w">        </span>UP<span class="w"> </span>BROADCAST<span class="w"> </span>RUNNING<span class="w"> </span>NOARP<span class="w"> </span>MULTICAST<span class="w">  </span>MTU:1500<span class="w">  </span>Metric:1
+<span class="w">        </span>RX<span class="w"> </span>packets:8051<span class="w"> </span>errors:0<span class="w"> </span>dropped:0<span class="w"> </span>overruns:0<span class="w"> </span>frame:0
+<span class="w">        </span>TX<span class="w"> </span>packets:7899<span class="w"> </span>errors:0<span class="w"> </span>dropped:0<span class="w"> </span>overruns:0<span class="w"> </span>carrier:0
+<span class="w">        </span>collisions:0<span class="w"> </span>txqueuelen:1000
+<span class="w">        </span>RX<span class="w"> </span>bytes:723881<span class="w"> </span><span class="o">(</span><span class="m">706</span>.9<span class="w"> </span>KiB<span class="o">)</span><span class="w">  </span>TX<span class="w"> </span>bytes:1183281<span class="w"> </span><span class="o">(</span><span class="m">1</span>.1<span class="w"> </span>MiB<span class="o">)</span>
+</pre></div>
+</div>
+<p><strong>cat /proc/net/dev</strong>
+Так же показывает подробную статистику по интерфейсам, но уже в виде таблицы.</p>
+<p><strong>arp</strong>
+Просмотр arp-таблицы</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@test-kroks:~#<span class="w"> </span>arp
+IP<span class="w"> </span>address<span class="w">       </span>HW<span class="w"> </span><span class="nb">type</span><span class="w">     </span>Flags<span class="w">      </span>HW<span class="w"> </span>address<span class="w">            </span>Mask<span class="w">    </span>Device
+<span class="m">185</span>.138.78.140<span class="w">   </span>0x1<span class="w">        </span>0x2<span class="w">         </span><span class="m">00</span>:e0:4c:36:00:e9<span class="w">     </span>*<span class="w">       </span>eth0
+</pre></div>
+</div>
+<p><strong>ip a</strong>
+Информация об ip- и mac-адресации интерфейсов</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@test-kroks:~#<span class="w"> </span>ip<span class="w"> </span>a
+<span class="m">1</span>:<span class="w"> </span>lo:<span class="w"> </span>&lt;LOOPBACK,UP,LOWER_UP&gt;<span class="w"> </span>mtu<span class="w"> </span><span class="m">65536</span><span class="w"> </span>qdisc<span class="w"> </span>noqueue<span class="w"> </span>state<span class="w"> </span>UNKNOWN<span class="w"> </span>qlen<span class="w"> </span><span class="m">1000</span>
+<span class="w">    </span>link/loopback<span class="w"> </span><span class="m">00</span>:00:00:00:00:00<span class="w"> </span>brd<span class="w"> </span><span class="m">00</span>:00:00:00:00:00
+<span class="w">    </span>inet<span class="w"> </span><span class="m">127</span>.0.0.1/8<span class="w"> </span>scope<span class="w"> </span>host<span class="w"> </span>lo
+<span class="w">        </span>valid_lft<span class="w"> </span>forever<span class="w"> </span>preferred_lft<span class="w"> </span>forever
+<span class="w">    </span>inet<span class="w"> </span><span class="m">10</span>.9.211.21/32<span class="w"> </span>brd<span class="w"> </span><span class="m">255</span>.255.255.255<span class="w"> </span>scope<span class="w"> </span>global<span class="w"> </span>lo
+<span class="w">        </span>valid_lft<span class="w"> </span>forever<span class="w"> </span>preferred_lft<span class="w"> </span>forever
+<span class="w">    </span>inet6<span class="w"> </span>::1/128<span class="w"> </span>scope<span class="w"> </span>host
+<span class="w">        </span>valid_lft<span class="w"> </span>forever<span class="w"> </span>preferred_lft<span class="w"> </span>forever
+<span class="m">2</span>:<span class="w"> </span>eth0:<span class="w"> </span>&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;<span class="w"> </span>mtu<span class="w"> </span><span class="m">1500</span><span class="w"> </span>qdisc<span class="w"> </span>hfsc<span class="w"> </span>state<span class="w"> </span>UNKNOWN<span class="w"> </span>qlen<span class="w"> </span><span class="m">1000</span>
+<span class="w">    </span>link/ether<span class="w"> </span>0c:ef:af:d1:24:92<span class="w"> </span>brd<span class="w"> </span>ff:ff:ff:ff:ff:ff
+<span class="w">    </span>inet<span class="w"> </span><span class="m">185</span>.138.78.1/24<span class="w"> </span>brd<span class="w"> </span><span class="m">185</span>.138.78.255<span class="w"> </span>scope<span class="w"> </span>global<span class="w"> </span>eth0
+<span class="w">        </span>valid_lft<span class="w"> </span>forever<span class="w"> </span>preferred_lft<span class="w"> </span>forever
+<span class="w">    </span>inet6<span class="w"> </span>fe80::eef:afff:fed1:2492/64<span class="w"> </span>scope<span class="w"> </span>link
+<span class="w">        </span>valid_lft<span class="w"> </span>forever<span class="w"> </span>preferred_lft<span class="w"> </span>forever
+</pre></div>
+</div>
+<p><strong>ip neigh</strong>
+Информация о подключенных устройствах</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@test-kroks:~#<span class="w"> </span>ip<span class="w"> </span>neigh
+<span class="m">185</span>.138.78.140<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>lladdr<span class="w"> </span><span class="m">00</span>:e0:4c:36:00:e9<span class="w"> </span>ref<span class="w"> </span><span class="m">1</span><span class="w"> </span>used<span class="w"> </span><span class="m">0</span>/0/0<span class="w"> </span>probes<span class="w"> </span><span class="m">1</span><span class="w"> </span>REACHABLE
+fe80::45c8:bd4a:f099:4537<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>lladdr<span class="w"> </span><span class="m">00</span>:e0:4c:36:00:e9<span class="w"> </span>used<span class="w"> </span><span class="m">0</span>/0/0<span class="w"> </span>probes<span class="w"> </span><span class="m">0</span><span class="w"> </span>STALE
+</pre></div>
+</div>
+<p><strong>ping</strong></p>
+<p>проверка доступности удаленного узла. По-умолчанию проводится бесконечно, Ctrl+C для остановки</p>
+<p>Ключи:</p>
+<ul class="simple">
+<li><p>-s – размер пакета, но пинговать будет на 8 байт больше</p></li>
+<li><p>-i – интервал в секундах</p></li>
+<li><p>-I – источник, откуда проводится проверка, может быть указан ip или интерфейс</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@test-kroks:~#<span class="w"> </span>ping<span class="w"> </span><span class="m">185</span>.77.237.185<span class="w"> </span>-s<span class="w"> </span><span class="m">1400</span>
+PING<span class="w"> </span><span class="m">185</span>.77.237.185<span class="w"> </span><span class="o">(</span><span class="m">185</span>.77.237.185<span class="o">)</span>:<span class="w"> </span><span class="m">1400</span><span class="w"> </span>data<span class="w"> </span>bytes
+<span class="m">1408</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">185</span>.77.237.185:<span class="w"> </span><span class="nv">seq</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">53</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">79</span>.823<span class="w"> </span>ms
+<span class="m">1408</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">185</span>.77.237.185:<span class="w"> </span><span class="nv">seq</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">53</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">66</span>.272<span class="w"> </span>ms
+<span class="m">1408</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">185</span>.77.237.185:<span class="w"> </span><span class="nv">seq</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">53</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">56</span>.102<span class="w"> </span>ms
+<span class="m">1408</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">185</span>.77.237.185:<span class="w"> </span><span class="nv">seq</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">53</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">62</span>.545<span class="w"> </span>ms
+^C
+---<span class="w"> </span><span class="m">185</span>.77.237.185<span class="w"> </span>ping<span class="w"> </span>statistics<span class="w"> </span>---
+<span class="m">4</span><span class="w"> </span>packets<span class="w"> </span>transmitted,<span class="w"> </span><span class="m">4</span><span class="w"> </span>packets<span class="w"> </span>received,<span class="w"> </span><span class="m">0</span>%<span class="w"> </span>packet<span class="w"> </span>loss
+round-trip<span class="w"> </span>min/avg/max<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">56</span>.102/66.185/79.823<span class="w"> </span>ms
+</pre></div>
+</div>
+<p><strong>uptime</strong>
+Показывает время работы антенны.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@test-kroks:~#<span class="w"> </span>uptime
+<span class="w">        </span><span class="m">11</span>:29:06<span class="w"> </span>up<span class="w"> </span><span class="m">28</span><span class="w"> </span>min,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.15,<span class="w"> </span><span class="m">1</span>.31,<span class="w"> </span><span class="m">1</span>.04
+</pre></div>
+</div>
+<p><strong>reboot</strong>
+Немедленная перезагрузка антенны.</p>
+</section>
+<section id="id1">
+<h2><span class="section-number">1.3. </span>Тестирование пропускной способности<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p>Тестирование скорости проводится утилитой iperf3, на оборудовании Крокс iperf-сервер автоматически запускается при загрузке системы.</p>
+<p>Так как на РУСах, куда терминируются туннели с Крокса, нет технической возможности запустить iperf-клиента, тестирование проводится либо с компьютера специалиста, либо с сервера, для генерации конфигов (bender).</p>
+<p>По-умолчанию тестирование проводится протоколом TCP.</p>
+<p>Синтаксис выглядит следующим образом:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iperf3<span class="w"> </span>-c<span class="w"> </span><span class="m">10</span>.9.10.10<span class="w"> </span>-b<span class="w"> </span>2M<span class="w"> </span>-t<span class="w"> </span><span class="m">300</span><span class="w"> </span>-l<span class="w"> </span><span class="m">1400</span><span class="w"> </span>-R
+</pre></div>
+</div>
+<p>Теперь немного о ключах:</p>
+<ul class="simple">
+<li><p>-c - означает что iperf3 будет запущен в качестве клиента и подключится к 10.9.10.10.</p></li>
+<li><p>-b - указывает скорость тестирования, в данном примере 2 Мбит/с, если не использовать -b, то ограничения скорости не будет и антенна может потерять связь из-за перегрузки.</p></li>
+<li><p>-t - указывает время тестирования в секундах.</p></li>
+<li><p>-l - указывает длину отправляемых пакетов, по-умолчанию тестирование проводится протоколом TCP, поэтому ключ не обязателен.</p></li>
+<li><p>–bidir - двухстороннее тестирование (прием, отдача)</p></li>
+<li><p>-R - reverse, по-умолчанию трафик отправляется от сервера к клиенту (от антенны к компьютеру, с которого тестируют), но ключ -R позволяет проводить тестирование в другую сторону.</p></li>
+</ul>
+<p>Таким образом, для полноценного тестирования пропускной способности, необходимо сначала проверить как канал держит скорость на загрузку, а после этого на отдачу.</p>
+<p>Параллельно запуском тестирования, следует запустить пинг с РУСа, куда приземляется антенна, до её loopback’а, чтобы снять показания задержек.</p>
+<p>Пример результатов тестирования (вывод команды iperf и статистика задержек с РУСа):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@robot:~$<span class="w"> </span>iperf3<span class="w"> </span>-c<span class="w"> </span><span class="m">10</span>.9.209.87<span class="w"> </span>-b<span class="w"> </span>10M<span class="w"> </span>-l<span class="w"> </span><span class="m">1450</span><span class="w"> </span>-t<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--bidir
+Connecting<span class="w"> </span>to<span class="w"> </span>host<span class="w"> </span><span class="m">10</span>.9.209.87,<span class="w"> </span>port<span class="w"> </span><span class="m">5201</span>
+<span class="o">[</span><span class="w">  </span><span class="m">5</span><span class="o">]</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">192</span>.168.10.72<span class="w"> </span>port<span class="w"> </span><span class="m">37160</span><span class="w"> </span>connected<span class="w"> </span>to<span class="w"> </span><span class="m">10</span>.9.209.87<span class="w"> </span>port<span class="w"> </span><span class="m">5201</span>
+<span class="o">[</span><span class="w">  </span><span class="m">7</span><span class="o">]</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">192</span>.168.10.72<span class="w"> </span>port<span class="w"> </span><span class="m">37162</span><span class="w"> </span>connected<span class="w"> </span>to<span class="w"> </span><span class="m">10</span>.9.209.87<span class="w"> </span>port<span class="w"> </span><span class="m">5201</span>
+<span class="o">[</span><span class="w"> </span>ID<span class="o">][</span>Role<span class="o">]</span><span class="w"> </span>Interval<span class="w">           </span>Transfer<span class="w">     </span>Bitrate<span class="w">         </span>Retr<span class="w">  </span>Cwnd
+<span class="o">[</span><span class="w">  </span><span class="m">5</span><span class="o">][</span>TX-C<span class="o">]</span><span class="w">   </span><span class="m">0</span>.00-1.00<span class="w">   </span>sec<span class="w">  </span><span class="m">1</span>.19<span class="w"> </span>MBytes<span class="w">  </span><span class="m">10</span>.0<span class="w"> </span>Mbits/sec<span class="w">    </span><span class="m">0</span><span class="w">   </span><span class="m">91</span>.5<span class="w"> </span>KBytes
+<span class="o">[</span><span class="w">  </span><span class="m">7</span><span class="o">][</span>RX-C<span class="o">]</span><span class="w">   </span><span class="m">0</span>.00-1.00<span class="w">   </span>sec<span class="w">  </span><span class="m">1</span>.03<span class="w"> </span>MBytes<span class="w">  </span><span class="m">8</span>.61<span class="w"> </span>Mbits/sec
+<span class="o">[</span><span class="w">  </span><span class="m">5</span><span class="o">][</span>TX-C<span class="o">]</span><span class="w">   </span><span class="m">1</span>.00-2.00<span class="w">   </span>sec<span class="w">  </span><span class="m">1</span>.19<span class="w"> </span>MBytes<span class="w">  </span><span class="m">10</span>.0<span class="w"> </span>Mbits/sec<span class="w">    </span><span class="m">0</span><span class="w">   </span><span class="m">98</span>.3<span class="w"> </span>KBytes
+<span class="o">[</span><span class="w">  </span><span class="m">7</span><span class="o">][</span>RX-C<span class="o">]</span><span class="w">   </span><span class="m">1</span>.00-2.00<span class="w">   </span>sec<span class="w">  </span><span class="m">1</span>.25<span class="w"> </span>MBytes<span class="w">  </span><span class="m">10</span>.5<span class="w"> </span>Mbits/sec
+<span class="o">[</span><span class="w">  </span><span class="m">5</span><span class="o">][</span>TX-C<span class="o">]</span><span class="w">   </span><span class="m">2</span>.00-3.00<span class="w">   </span>sec<span class="w">  </span><span class="m">1</span>.19<span class="w"> </span>MBytes<span class="w">  </span><span class="m">10</span>.0<span class="w"> </span>Mbits/sec<span class="w">    </span><span class="m">0</span><span class="w">   </span><span class="m">98</span>.3<span class="w"> </span>KBytes
+<span class="o">[</span><span class="w">  </span><span class="m">7</span><span class="o">][</span>RX-C<span class="o">]</span><span class="w">   </span><span class="m">2</span>.00-3.00<span class="w">   </span>sec<span class="w">  </span><span class="m">1</span>.30<span class="w"> </span>MBytes<span class="w">  </span><span class="m">10</span>.9<span class="w"> </span>Mbits/sec
+<span class="o">[</span><span class="w">  </span><span class="m">5</span><span class="o">][</span>TX-C<span class="o">]</span><span class="w">   </span><span class="m">3</span>.00-4.00<span class="w">   </span>sec<span class="w">  </span><span class="m">1</span>.19<span class="w"> </span>MBytes<span class="w">  </span><span class="m">10</span>.0<span class="w"> </span>Mbits/sec<span class="w">    </span><span class="m">2</span><span class="w">   </span><span class="m">80</span>.5<span class="w"> </span>KBytes
+<span class="o">[</span><span class="w">  </span><span class="m">7</span><span class="o">][</span>RX-C<span class="o">]</span><span class="w">   </span><span class="m">3</span>.00-4.00<span class="w">   </span>sec<span class="w">  </span><span class="m">1</span>.11<span class="w"> </span>MBytes<span class="w">  </span><span class="m">9</span>.31<span class="w"> </span>Mbits/sec
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>M9-Internet-1<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>ping<span class="w"> </span><span class="nv">interval</span><span class="o">=</span><span class="m">0</span>.5<span class="w"> </span><span class="nv">size</span><span class="o">=</span><span class="m">1500</span><span class="w"> </span><span class="m">10</span>.9.209.87
+<span class="w">  </span>SEQ<span class="w"> </span>HOST<span class="w">                                     </span>SIZE<span class="w"> </span>TTL<span class="w"> </span>TIME<span class="w">  </span>STATUS
+<span class="w">    </span><span class="m">0</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>50ms
+<span class="w">    </span><span class="m">1</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>48ms
+<span class="w">    </span><span class="m">2</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>47ms
+<span class="w">    </span><span class="m">3</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>65ms
+<span class="w">    </span><span class="m">4</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>47ms
+<span class="w">    </span><span class="m">5</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>45ms
+<span class="w">    </span><span class="m">6</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>52ms
+<span class="w">    </span><span class="m">7</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>61ms
+<span class="w">    </span><span class="m">8</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>49ms
+<span class="w">    </span><span class="m">9</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>46ms
+<span class="w">   </span><span class="m">10</span><span class="w"> </span><span class="m">10</span>.9.209.87<span class="w">                              </span><span class="m">1500</span><span class="w">  </span><span class="m">64</span><span class="w"> </span>86ms
+<span class="w">    </span><span class="nv">sent</span><span class="o">=</span><span class="m">11</span><span class="w"> </span><span class="nv">received</span><span class="o">=</span><span class="m">11</span><span class="w"> </span>packet-loss<span class="o">=</span><span class="m">0</span>%<span class="w"> </span>min-rtt<span class="o">=</span>45ms<span class="w"> </span>avg-rtt<span class="o">=</span>54ms<span class="w"> </span>max-rtt<span class="o">=</span>86ms
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="index.html" class="btn btn-neutral float-left" title="Добро пожаловать на СмартВики!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, usem.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
