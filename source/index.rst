@@ -25,5 +25,5 @@
    :numbered:
    :titlesonly:
 
-   tech
+   tech/index
    test.rst
