@@ -23,6 +23,7 @@
 .. toctree::
    :maxdepth: 1
    :numbered:
+   :hidden:
    :titlesonly:
 
    tech/index

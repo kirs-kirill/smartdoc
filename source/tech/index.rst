@@ -8,6 +8,7 @@
 .. toctree::
     :maxdepth: 3
     :numbered:
+    :hidden:
     :titlesonly:
 
     kroks/kroks_diag.rst
