@@ -25,5 +25,5 @@
    :numbered:
    :titlesonly:
 
-   book
+   tech
    test.rst
