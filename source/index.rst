@@ -1,0 +1,29 @@
+.. toctree::
+   
+
+Добро пожаловать на СмартВики!
+===================================
+
+
+**Вики будет дополнятся актуальными инструкциями и регламентами.**
+
+А пока можно посмотреть как менять технологии подключения на Микротиках и на что ориентироваться при проверке качества сети.
+
+Рекомендовано ознакомиться с интерфейсом оборудования КРОКС.
+
+Так же рекомендовано ознакомиться с материалами для самостоятельного изучения:
+
+   Сети для самых маленьких: `текст <https://linkmeup.ru/sdsm/>`_ и `видео <https://youtube.com/playlist?list=PLHN9m7XN8U8HQ4KdjaLlWtSHQ3PYgQzmV>`_;
+   
+   `Курс молодого бойца <https://youtube.com/playlist?list=PLcDkQ2Au8aVNYsqGsxRQxYyQijILa94T9>`_: работа с Cisco Packet Tracer;
+   
+   Mikrotik Wiki: `официальная <https://wiki.mikrotik.com/wiki/Main_Page>`_ и `русскоязычная <https://mikrotik.wiki/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0>`_;
+
+
+.. toctree::
+   :maxdepth: 1
+   :numbered:
+   :titlesonly:
+
+   book
+   test.rst
